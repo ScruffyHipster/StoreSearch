@@ -14,6 +14,7 @@
 		4AECA2632022171200C43C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECA2622022171200C43C01 /* Assets.xcassets */; };
 		4AECA2662022171200C43C01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AECA2642022171200C43C01 /* LaunchScreen.storyboard */; };
 		4AECA2712022171200C43C01 /* StoreSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA2702022171200C43C01 /* StoreSearchTests.swift */; };
+		4AF79D5F2022203B00580FD1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF79D5E2022203B00580FD1 /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		4AECA26C2022171200C43C01 /* StoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AECA2702022171200C43C01 /* StoreSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTests.swift; sourceTree = "<group>"; };
 		4AECA2722022171200C43C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF79D5E2022203B00580FD1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				4AECA2582022171200C43C01 /* AppDelegate.swift */,
+				4AF79D5E2022203B00580FD1 /* SearchResult.swift */,
 				4AECA25A2022171200C43C01 /* SearchViewController.swift */,
 				4AECA25C2022171200C43C01 /* Main.storyboard */,
 				4AECA2622022171200C43C01 /* Assets.xcassets */,
@@ -204,6 +207,7 @@
 			files = (
 				4AECA25B2022171200C43C01 /* SearchViewController.swift in Sources */,
 				4AECA2592022171200C43C01 /* AppDelegate.swift in Sources */,
+				4AF79D5F2022203B00580FD1 /* SearchResult.swift in Sources */,
 				4AECA2612022171200C43C01 /* StoreSearch.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
