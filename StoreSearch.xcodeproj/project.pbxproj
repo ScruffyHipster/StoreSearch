@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AECA2592022171200C43C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA2582022171200C43C01 /* AppDelegate.swift */; };
-		4AECA25B2022171200C43C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA25A2022171200C43C01 /* ViewController.swift */; };
+		4AECA25B2022171200C43C01 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA25A2022171200C43C01 /* SearchViewController.swift */; };
 		4AECA25E2022171200C43C01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AECA25C2022171200C43C01 /* Main.storyboard */; };
 		4AECA2612022171200C43C01 /* StoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA25F2022171200C43C01 /* StoreSearch.xcdatamodeld */; };
 		4AECA2632022171200C43C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECA2622022171200C43C01 /* Assets.xcassets */; };
@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		4AECA2552022171200C43C01 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AECA2582022171200C43C01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4AECA25A2022171200C43C01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4AECA25A2022171200C43C01 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4AECA25D2022171200C43C01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AECA2602022171200C43C01 /* StoreSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StoreSearch.xcdatamodel; sourceTree = "<group>"; };
 		4AECA2622022171200C43C01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				4AECA2582022171200C43C01 /* AppDelegate.swift */,
-				4AECA25A2022171200C43C01 /* ViewController.swift */,
+				4AECA25A2022171200C43C01 /* SearchViewController.swift */,
 				4AECA25C2022171200C43C01 /* Main.storyboard */,
 				4AECA2622022171200C43C01 /* Assets.xcassets */,
 				4AECA2642022171200C43C01 /* LaunchScreen.storyboard */,
@@ -202,7 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AECA25B2022171200C43C01 /* ViewController.swift in Sources */,
+				4AECA25B2022171200C43C01 /* SearchViewController.swift in Sources */,
 				4AECA2592022171200C43C01 /* AppDelegate.swift in Sources */,
 				4AECA2612022171200C43C01 /* StoreSearch.xcdatamodeld in Sources */,
 			);
