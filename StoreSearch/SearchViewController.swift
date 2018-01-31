@@ -28,6 +28,7 @@ class SearchViewController: UIViewController {
 	//TableVire array
 	
 	var searchResults = [SearchResult]()
+	var hasSearched = false
 
 }
 
@@ -42,6 +43,7 @@ extension SearchViewController: UISearchBarDelegate {
 			searchResult.artistName = searchBar.text!
 			searchResults.append(searchResult)
 		}
+			hasSearched = true
 		tableView.reloadData()
 	}
 	
@@ -54,7 +56,9 @@ extension SearchViewController: UISearchBarDelegate {
 //MARK:- Table view delegates
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		if searchResults.count == 0 {
+		if !hasSearched {
+			return 0
+	    } else if searchResults.count == 0 {
 			return 1
 		} else {
 			return searchResults.count
@@ -77,6 +81,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.detailTextLabel!.text = searchResult.artistName
 		}
 		return cell
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
+	
+	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+		if searchResults.count == 0 {
+			return nil
+		} else {
+			return indexPath
+		}
 	}
 }
 
