@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		customiseAppearence()
 		// Override point for customization after application launch.
 		return true
 	}
@@ -87,6 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
 	        }
 	    }
+	}
+	
+	func customiseAppearence() {
+		let barTintColour = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
+		UISearchBar.appearance().barTintColor = barTintColour
+		window!.tintColor = UIColor(red: 10/255, green: 80/255, blue: 80/255, alpha: 1)
 	}
 
 }

@@ -23,6 +23,7 @@ class SearchViewController: UIViewController {
 		cellNib = UINib(nibName: TableViewCellIdentifiers.nothingFoundCell, bundle: nil)
 		tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell)
 		tableView.rowHeight = 80
+		searchBar.becomeFirstResponder()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
@@ -46,21 +47,21 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
-		if searchBar.text! != "justin bieber" {
+		if searchBar.text! != "Justin Bieber" {
 		for i in 0...2 {
 			let searchResult = SearchResult()
 			searchResult.name = String(format: "Fake result %d for", i)
 			searchResult.artistName = searchBar.text!
 			searchResults.append(searchResult)
-		}
-			hasSearched = true
+			}
+		hasSearched = true
 		tableView.reloadData()
+		}
 	}
 	
 	func position(for bar: UIBarPositioning) -> UIBarPosition {
 		return .topAttached
 		}
-	}
 }
 
 //MARK:- Table view delegates
@@ -76,7 +77,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.searchResultCell, for: indexPath) as! SearchResultCell
 		if searchResults.count == 0 {
 			return tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.nothingFoundCell, for: indexPath)
 		} else {
@@ -84,8 +84,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 			let searchResult = searchResults[indexPath.row]
 			cell.nameLabel!.text = searchResult.name
 			cell.artistNameLabel!.text = searchResult.artistName
+			return cell
 		}
-		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
