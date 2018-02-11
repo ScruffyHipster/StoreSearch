@@ -26,26 +26,56 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="0dV-Ve-Bz7"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" text="" placeholder="App name, artist, album, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-YJ-gBf">
+                            <searchBar contentMode="redraw" text="" placeholder="App name, artist, album, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="JbC-YJ-gBf">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="pyW-MQ-MsG"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kff-Uj-Ewh"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-gp-io0">
+                                <rect key="frame" x="0.0" y="76" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="zWB-Zn-61S">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Zp3-9r-W0A">
+                                            <rect key="frame" x="37.5" y="7" width="300" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="All"/>
+                                                <segment title="Music"/>
+                                                <segment title="Software"/>
+                                                <segment title="E-Books"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentedChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="doS-Ok-cRC"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LZv-Pr-lT3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="94d-aJ-pbS"/>
+                            <constraint firstItem="rsQ-gp-io0" firstAttribute="top" secondItem="JbC-YJ-gBf" secondAttribute="bottom" constant="12" id="BbD-0K-onc"/>
+                            <constraint firstItem="JbC-YJ-gBf" firstAttribute="trailing" secondItem="rsQ-gp-io0" secondAttribute="trailing" id="NJY-10-fT9"/>
+                            <constraint firstItem="rsQ-gp-io0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="as6-0D-kaT"/>
                             <constraint firstItem="LZv-Pr-lT3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eLS-qd-MIo"/>
+                            <constraint firstItem="rsQ-gp-io0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fHT-HE-ES6"/>
                             <constraint firstItem="LZv-Pr-lT3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h47-LW-A2U"/>
                             <constraint firstItem="LZv-Pr-lT3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jtv-72-aBk"/>
+                            <constraint firstItem="JbC-YJ-gBf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uw9-Ug-aPD"/>
+                            <constraint firstItem="JbC-YJ-gBf" firstAttribute="leading" secondItem="rsQ-gp-io0" secondAttribute="leading" id="xxZ-ZT-HyF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="JbC-YJ-gBf" id="MRK-DR-BxI"/>
+                        <outlet property="segmentedControl" destination="Zp3-9r-W0A" id="mCq-m7-QC0"/>
                         <outlet property="tableView" destination="LZv-Pr-lT3" id="Te3-Ph-c4u"/>
                     </connections>
                 </viewController>

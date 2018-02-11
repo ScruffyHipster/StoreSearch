@@ -34,9 +34,10 @@ class SearchResult: Codable, CustomStringConvertible {
 	var itemPrice: Double?
 	var itemGenre: String?
 	var bookGenre: [String]?
+	var software: String?
 
 	var name: String {
-		return trackName ?? collectionName ?? ""
+		return trackName ?? collectionName ?? software ?? ""
 	}
 	
 	var storeURL: String {
@@ -83,6 +84,7 @@ class SearchResult: Codable, CustomStringConvertible {
 		case kind, artistName, currency
 		case trackName, trackPrice, trackViewUrl
 		case collectionName, collectionViewUrl, collectionPrice
+		case software
 	}
 	
 }
