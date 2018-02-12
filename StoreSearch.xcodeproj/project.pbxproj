@@ -11,6 +11,7 @@
 		4A1FE1772024D771008FD658 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1FE1762024D771008FD658 /* SearchResultCell.swift */; };
 		4A1FE1792025E1A3008FD658 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A1FE1782025E1A3008FD658 /* NothingFoundCell.xib */; };
 		4A67DE462028F1FB001FCCF2 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A67DE452028F1FB001FCCF2 /* LoadingCell.xib */; };
+		4AA6419B20307F73000FF4AB /* UIImageView+DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6419A20307F73000FF4AB /* UIImageView+DownloadImage.swift */; };
 		4AECA2592022171200C43C01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA2582022171200C43C01 /* AppDelegate.swift */; };
 		4AECA25B2022171200C43C01 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA25A2022171200C43C01 /* SearchViewController.swift */; };
 		4AECA25E2022171200C43C01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AECA25C2022171200C43C01 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		4A1FE1762024D771008FD658 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		4A1FE1782025E1A3008FD658 /* NothingFoundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		4A67DE452028F1FB001FCCF2 /* LoadingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		4AA6419A20307F73000FF4AB /* UIImageView+DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+DownloadImage.swift"; sourceTree = "<group>"; };
 		4AECA2552022171200C43C01 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AECA2582022171200C43C01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AECA25A2022171200C43C01 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				4AECA2582022171200C43C01 /* AppDelegate.swift */,
 				4AF79D5E2022203B00580FD1 /* SearchResult.swift */,
 				4AECA25A2022171200C43C01 /* SearchViewController.swift */,
+				4AA6419A20307F73000FF4AB /* UIImageView+DownloadImage.swift */,
 				4A1FE1762024D771008FD658 /* SearchResultCell.swift */,
 				4AECA25C2022171200C43C01 /* Main.storyboard */,
 				4AECA2622022171200C43C01 /* Assets.xcassets */,
@@ -218,6 +221,7 @@
 			files = (
 				4AECA25B2022171200C43C01 /* SearchViewController.swift in Sources */,
 				4AECA2592022171200C43C01 /* AppDelegate.swift in Sources */,
+				4AA6419B20307F73000FF4AB /* UIImageView+DownloadImage.swift in Sources */,
 				4AF79D5F2022203B00580FD1 /* SearchResult.swift in Sources */,
 				4AECA2612022171200C43C01 /* StoreSearch.xcdatamodeld in Sources */,
 				4A1FE1772024D771008FD658 /* SearchResultCell.swift in Sources */,
