@@ -40,6 +40,14 @@ class SearchViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	
+	override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+		super.willTransition(to: newCollection, with: coordinator)
+		switch newCollection.verticalSizeClass {
+		case .compact: showLandscape(with: coordinator)
+		case .regular, .unspecified: hideLandscape(with: coordinator)
+		}
+	}
 
 	//Outlets\
 	@IBOutlet weak var searchBar: UISearchBar!
@@ -47,6 +55,8 @@ class SearchViewController: UIViewController {
 	
 	//Instance Vars
 	var dataTask: URLSessionDataTask?
+	var landscapeVC: LandscapeviewController?
+	var detailVC: DetailViewController?
 	
 	//TableView array
 	
@@ -91,8 +101,45 @@ class SearchViewController: UIViewController {
 		alert.addAction(action)
 		present(alert, animated: true, completion: nil)
 	}
+	
+	//Landscape orientation
+	func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+		guard landscapeVC == nil else {return}
+		
+		landscapeVC = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController") as? LandscapeviewController
+		if let controller = landscapeVC {
+			controller.view.frame = view.bounds
+			controller.view.alpha = 0
+			view.addSubview(controller.view)
+			addChildViewController(controller)
+				coordinator.animate(alongsideTransition: { _ in
+				controller.view.alpha = 1
+				self.searchBar.resignFirstResponder()
+				self.closePop()
+			}, completion: { _ in
+				controller.didMove(toParentViewController: self)
+			})
+		}
+	}
+	
+	func hideLandscape(with coordinatior: UIViewControllerTransitionCoordinator) {
+		if let controller = landscapeVC {
+			controller.willMove(toParentViewController: nil)
+			coordinatior.animate(alongsideTransition: { _ in
+				controller.view.alpha = 0
+			}, completion: { _ in
+				controller.removeFromParentViewController()
+				self.landscapeVC = nil
+			})
+		}
+	}
+	
+	func closePop() {
+		if self.presentedViewController != nil {
+			self.dismiss(animated: true, completion: nil)
+		}
+	}
 }
-
 //MARK:- Search bar delegates
 extension SearchViewController: UISearchBarDelegate {
 	
@@ -124,8 +171,11 @@ extension SearchViewController: UISearchBarDelegate {
 							return
 						}
 					} else {
-						print("Failure! \(response!)")
+						print("Failure! \(response)")
 				}
+				
+			
+				
 				DispatchQueue.main.async {
 					self.isLoading = false
 					self.hasSearched = false
