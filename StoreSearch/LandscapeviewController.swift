@@ -18,7 +18,7 @@ class LandscapeviewController: UIViewController {
 		}, completion: nil)
 	}
 	
-	var searchResults = [SearchResult]()
+	var search: Search!
 	
 	private var firstTime = true
 	private var downloads = [URLSessionDownloadTask]()
@@ -55,7 +55,7 @@ class LandscapeviewController: UIViewController {
 		
 		if firstTime {
 		firstTime = false
-		tileButtons(searchResults)
+		tileButtons(search.searchResults)
 		}
 	}
 	
@@ -149,7 +149,7 @@ class LandscapeviewController: UIViewController {
 					let image = UIImage(data: data) {
 					DispatchQueue.main.async {
 						if let button = button {
-							button.setBackgroundImage(image, for: .normal)
+							button.setBackgroundImage(image.resized(withBounds: CGSize(width: button.bounds.width, height: button.bounds.height)), for: .normal)
 						}
 					}
 				}
@@ -158,7 +158,7 @@ class LandscapeviewController: UIViewController {
 			downloads.append(task)
 		}
 	}
-    
+	
 
     /*
     // MARK: - Navigation
