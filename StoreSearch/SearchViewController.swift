@@ -103,6 +103,9 @@ class SearchViewController: UIViewController {
 				self.landscapeVC = nil
 			})
 		}
+		if self.presentedViewController != nil {
+			self.dismiss(animated: true, completion: nil)
+		}
 	}
 	
 	func closePop() {
@@ -121,6 +124,7 @@ extension SearchViewController: UISearchBarDelegate {
 				self.showNetworkError()
 			}
 			self.tableView.reloadData()
+			self.landscapeVC?.searchResultsReceived()
 		})
 		tableView.reloadData()
 		searchBar.resignFirstResponder()

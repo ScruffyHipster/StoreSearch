@@ -236,15 +236,19 @@
                     <connections>
                         <outlet property="pageControl" destination="HNw-8D-jNC" id="SYD-Rr-huk"/>
                         <outlet property="scrollView" destination="vml-VW-s9w" id="lfP-pt-JCx"/>
+                        <segue destination="rM6-ob-uIx" kind="presentation" identifier="ShowDetail" id="IyN-Ol-8Tw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNO-c6-gA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="963.38028169014081" y="830.625"/>
+            <point key="canvasLocation" x="138" y="885"/>
         </scene>
     </scenes>
     <resources>
         <image name="CloseButton" width="15" height="15"/>
         <image name="PriceButton" width="11" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IyN-Ol-8Tw"/>
+    </inferredMetricsTieBreakers>
 </document>
