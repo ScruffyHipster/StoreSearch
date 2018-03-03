@@ -245,7 +245,7 @@ extension LandscapeviewController {
 extension LandscapeviewController {
 	private func showNothingFoundLabel() {
 		let label = UILabel(frame: CGRect.zero)
-		label.text = "Nothing Found"
+		label.text = NSLocalizedString("Nothing Found", comment: "Text label for when nothing is found")
 		label.textColor = UIColor.white
 		label.backgroundColor = UIColor.clear
 		
