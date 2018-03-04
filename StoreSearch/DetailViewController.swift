@@ -21,9 +21,16 @@ class DetailViewController: UIViewController {
 	@IBOutlet weak var priceButton: UIButton!
 	
 	
-	var searchResult: SearchResult!
+	var searchResult: SearchResult! {
+		didSet {
+			if isViewLoaded {
+				updateUI()
+			}
+		}
+	}
 	var downloadTask: URLSessionDownloadTask?
 	var dismissStyle = AnimationStyle.fade
+	var isPopUp = false
 	
 	enum AnimationStyle {
 		case slide
@@ -41,16 +48,21 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 		view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
 		popupView.layer.cornerRadius = 10
-		let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
-		gestureRecognizer.cancelsTouchesInView = false
-		gestureRecognizer.delegate = self
-		view.addGestureRecognizer(gestureRecognizer)
+		if isPopUp {
+			let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
+				gestureRecognizer.cancelsTouchesInView = false
+				gestureRecognizer.delegate = self
+				view.addGestureRecognizer(gestureRecognizer)
+				view.backgroundColor = UIColor.clear
+		} else {
+			view.backgroundColor = UIColor(patternImage: UIImage(named: "LandscapeBackground")!)
+			popupView.isHidden = true
+		}
 		if searchResult != nil {
 			updateUI()
 		}
-		view.backgroundColor = UIColor.clear
         // Do any additional setup after loading the view.
-    }
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -107,6 +119,7 @@ class DetailViewController: UIViewController {
 		if let largeURL = URL(string: searchResult.imageLarge) {
 			downloadTask = artworkImageView.loadImage(url: largeURL)
 		}
+		popupView.isHidden = false
 	}
 
 	

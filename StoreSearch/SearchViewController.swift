@@ -33,6 +33,7 @@ class SearchViewController: UIViewController {
 		cellNib = UINib(nibName: TableViewCellIdentifiers.loadingCell, bundle: nil)
 		tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
 		searchBar.becomeFirstResponder()
+		title = NSLocalizedString("Search", comment: "split view master button for portrait mode")
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
@@ -57,6 +58,7 @@ class SearchViewController: UIViewController {
 	
 	var landscapeVC: LandscapeviewController?
 	var detailVC: DetailViewController?
+	weak var splitViewDetail: DetailViewController?
 	
 	private let search = Search()
 	
@@ -176,8 +178,19 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-		performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+		searchBar.resignFirstResponder()
+		
+		if view.window!.rootViewController!.traitCollection.horizontalSizeClass == .compact {
+			tableView.deselectRow(at: indexPath, animated: true)
+			performSegue(withIdentifier: "ShowDetail", sender: indexPath)
+		} else {
+			if case .results(let list) = search.state {
+				splitViewDetail?.searchResult = list[indexPath.row]
+			}
+		}
+		
+	
+		
 	}
 	
 	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -199,6 +212,7 @@ extension SearchViewController {
 				let indexPath = sender as! IndexPath
 				let searchResult = list[indexPath.row]
 				detailViewController.searchResult = searchResult
+				detailViewController.isPopUp = true
 			}
 		}
 	}

@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		detailVC.navigationItem.leftBarButtonItem = splitVC.displayModeButtonItem
 		customiseAppearence()
+		searchVC.splitViewDetail = detailVC
 		// Override point for customization after application launch.
 		return true
 	}
@@ -95,6 +97,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		UISearchBar.appearance().barTintColor = barTintColour
 		window!.tintColor = UIColor(red: 10/255, green: 80/255, blue: 80/255, alpha: 1)
 	}
+	
+	var splitVC: UISplitViewController {
+		return window!.rootViewController as! UISplitViewController
+	}
+	
+	var searchVC: SearchViewController {
+		return splitVC.viewControllers.first as! SearchViewController
+	}
+	
+	var detailNavController: UINavigationController {
+		return splitVC.viewControllers.last as! UINavigationController
+	}
+	
+	var detailVC: DetailViewController {
+		return detailNavController.topViewController as! DetailViewController
+	}
+	
+	
 
 }
 
