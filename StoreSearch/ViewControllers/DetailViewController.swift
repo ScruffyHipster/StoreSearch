@@ -61,7 +61,10 @@ class DetailViewController: UIViewController {
 		if searchResult != nil {
 			updateUI()
 		}
-        // Do any additional setup after loading the view.
+		if let displayName = Bundle.main.localizedInfoDictionary?["CFBundleDisplayName"] as? String {
+			title = displayName
+		}
+	 // Do any additional setup after loading the view.
 	}
 
     override func didReceiveMemoryWarning() {
@@ -119,7 +122,12 @@ class DetailViewController: UIViewController {
 		if let largeURL = URL(string: searchResult.imageLarge) {
 			downloadTask = artworkImageView.loadImage(url: largeURL)
 		}
-		popupView.isHidden = false
+		
+		UIView.transition(with: view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+			self.popupView.isHidden = true
+			}, completion: { _ in
+				self.popupView.isHidden = false
+			})
 	}
 
 	
@@ -153,6 +161,10 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
 			return FadeOutAnimationController()
 		}
 	}
+}
+
+extension DetailViewController {
+	
 }
 
 extension DetailViewController: UIGestureRecognizerDelegate {

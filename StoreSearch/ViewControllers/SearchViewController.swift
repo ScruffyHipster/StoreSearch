@@ -34,6 +34,9 @@ class SearchViewController: UIViewController {
 		tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.loadingCell)
 		searchBar.becomeFirstResponder()
 		title = NSLocalizedString("Search", comment: "split view master button for portrait mode")
+		if UIDevice.current.userInterfaceIdiom != .pad {
+			searchBar.becomeFirstResponder()
+		}
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 
@@ -187,6 +190,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 			if case .results(let list) = search.state {
 				splitViewDetail?.searchResult = list[indexPath.row]
 			}
+			if splitViewController!.displayMode != .allVisible {
+				hideMasterPane()
+			}
 		}
 		
 	
@@ -215,6 +221,16 @@ extension SearchViewController {
 				detailViewController.isPopUp = true
 			}
 		}
+	}
+}
+
+extension SearchViewController {
+	private func hideMasterPane() {
+		UIView.animate(withDuration: 0.25, animations: {
+			self.splitViewController!.preferredDisplayMode = .primaryHidden
+		}, completion: { _ in
+			self.splitViewController!.preferredDisplayMode = .automatic
+		})
 	}
 }
 
