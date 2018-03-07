@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
 	
@@ -131,15 +132,17 @@ class DetailViewController: UIViewController {
 	}
 
 	
-    /*
+	
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "ShowMenu" {
+			let controller = segue.destination as! MenuViewController
+			controller.delegate = self
+		}
+	}
+	
 
 }
 
@@ -172,4 +175,33 @@ extension DetailViewController: UIGestureRecognizerDelegate {
 		return (touch.view === self.view)
 	}
 }
+
+extension DetailViewController: MenuViewControllerDelegate {
+	func menuViewControllerSendEmail(_ controller: MenuViewController) {
+		dismiss(animated: true) {
+			if MFMailComposeViewController.canSendMail() {
+				let controller = MFMailComposeViewController()
+				controller.mailComposeDelegate = self
+				controller.setSubject(NSLocalizedString("Support Request", comment: "Email subject heading"))
+				controller.setToRecipients(["tomsmiled@me.com"])
+				self.present(controller, animated: true, completion: nil)
+			}
+			controller.modalPresentationStyle = .formSheet
+		}
+	}
+}
+
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+	func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+		dismiss(animated: true, completion: nil)
+		
+//		if case let error == error {
+//		let alert = UIAlertController(title: "Error", message: "Error\(error!)", preferredStyle: .alert)
+//		alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+//			NSLog("Alert")}))
+//		self.present(alert, animated: true, completion: nil)
+//		}
+	}
+	}
+
 

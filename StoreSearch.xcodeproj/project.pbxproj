@@ -30,6 +30,7 @@
 		4AECA2612022171200C43C01 /* StoreSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA25F2022171200C43C01 /* StoreSearch.xcdatamodeld */; };
 		4AECA2632022171200C43C01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECA2622022171200C43C01 /* Assets.xcassets */; };
 		4AECA2712022171200C43C01 /* StoreSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECA2702022171200C43C01 /* StoreSearchTests.swift */; };
+		4AF2AC77204F380200AC5A2E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF2AC76204F380200AC5A2E /* MenuViewController.swift */; };
 		4AF79D5F2022203B00580FD1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF79D5E2022203B00580FD1 /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		4AECA26C2022171200C43C01 /* StoreSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AECA2702022171200C43C01 /* StoreSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreSearchTests.swift; sourceTree = "<group>"; };
 		4AECA2722022171200C43C01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AF2AC76204F380200AC5A2E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		4AF79D5E2022203B00580FD1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		4AB71845204DDC240060D1AB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4AF2AC76204F380200AC5A2E /* MenuViewController.swift */,
 				4AECA25A2022171200C43C01 /* SearchViewController.swift */,
 				4A5D436F2035F88900D9CCDE /* LandscapeviewController.swift */,
 				4A25B77220322D7B00D02168 /* DetailViewController.swift */,
@@ -282,6 +285,7 @@
 				4A598DFA2034DFF700EEBCA0 /* BounceAnimationsController.swift in Sources */,
 				4A1FE1772024D771008FD658 /* SearchResultCell.swift in Sources */,
 				4A5D436E2035BFC600D9CCDE /* SlideOutAnimationController.swift in Sources */,
+				4AF2AC77204F380200AC5A2E /* MenuViewController.swift in Sources */,
 				4A5D43722037677300D9CCDE /* FadeOutAnimationController.swift in Sources */,
 				4A25B77320322D7B00D02168 /* DetailViewController.swift in Sources */,
 				4A571D90203FB0F60061A989 /* Search.swift in Sources */,
